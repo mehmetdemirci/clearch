@@ -1,6 +1,6 @@
 # clearch
 
-![.NET Core](https://github.com/mehmetdemirci/clearch/workflows/.NET%20Core/badge.svg)
+![.NET Core CI](https://github.com/mehmetdemirci/clearch/workflows/.NET%20Core%20CI/badge.svg)
 
 This is a sample implementation of the Clean Architecture Principles with .NET Core.
 
@@ -10,11 +10,11 @@ If you like or are using this project to learn or start your solution, please gi
 
 ## Running
 
-1. Clone Repository `git clone https://github.com/lucassklp/Default.Architecture.git`
+- Clone Repository `git clone https://github.com/mehmetdemirci/clearch.git`
 
-2. Open directory **src\Clearch.WebApp\ClientApp** in command line and execute `yarn install` then `yarn start`.
+- Open directory **src\Clearch.WebApp\ClientApp** in command line and execute `yarn install` then `yarn start`.
 
-3. Open directory **src\Clearch.WebApp** in command line and execute `dotnet build` then `dotnet run`.
+- Open directory **src\Clearch.WebApp** in command line and execute `dotnet build` then `dotnet run`.
 
 ### License
 
