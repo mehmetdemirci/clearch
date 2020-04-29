@@ -1,35 +1,34 @@
-﻿using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Clearch.Application.Abstractions;
+﻿using Clearch.Application.Abstractions;
 using Clearch.Application.Abstractions.Commands;
+using Clearch.Application.Common;
 using Clearch.Domain.Entities.ReminderAggregate;
 using Clearch.Infrastructure.Data.Context;
 using MediatR;
+using System.Threading;
+using System.Threading.Tasks;
 
-namespace Clearch.Application.TestReminder
+namespace Clearch.Application.ReminderGroups.Commands.Create
 {
-    internal class CreateReminderGroupCommandHandler : ICommandHandler<CreateReminderGroupCommand>
+    internal class CreateReminderGroupCommandHandler : ICommandHandler<CreateReminderGroupCommand,int>
     {
         private readonly ReminderDbContext reminderDbContext;
         private readonly IExecutionContextAccessor executionContextAccessor;
+
         public CreateReminderGroupCommandHandler(ReminderDbContext reminderDbContext, IExecutionContextAccessor executionContextAccessor)
         {
             this.reminderDbContext = reminderDbContext;
             this.executionContextAccessor = executionContextAccessor;
         }
 
-        public Task<Unit> Handle(CreateReminderGroupCommand request, CancellationToken cancellationToken)
+        public Task<IResult<int>> Handle(CreateReminderGroupCommand request, CancellationToken cancellationToken)
         {
             var group = new ReminderGroup();
+            group.Create(request.Title, executionContextAccessor.UserId);
 
-            group.Create("Reminder Group", this.executionContextAccessor.UserId);
-            this.reminderDbContext.Set<ReminderGroup>().Add(group);
+            reminderDbContext.Set<ReminderGroup>().Add(group);
+            reminderDbContext.SaveChangesAsync();
 
-            this.reminderDbContext.SaveChangesAsync();
-
-            return Unit.Task;
+            return Result<int>.SuccessAsync(group.Id);
         }
     }
 }

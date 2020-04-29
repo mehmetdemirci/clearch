@@ -1,5 +1,7 @@
 ﻿using Clearch.Application.Abstractions;
 using Clearch.Application.Abstractions.Queries;
+using Clearch.Application.Common;
+using Clearch.Application.WeatherForecasts.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Clearch.Application.GetWeatherForecast
+namespace Clearch.Application.WeatherForecasts.Queries.List
 {
     public class GetWeatherForecastListQueryHandler : IQueryHandler<GetWeatherForecastListQuery, IEnumerable<WeatherForecast>>
     {
@@ -19,7 +21,7 @@ namespace Clearch.Application.GetWeatherForecast
         public GetWeatherForecastListQueryHandler()
         { }
 
-        public Task<IEnumerable<WeatherForecast>> Handle(GetWeatherForecastListQuery request, CancellationToken cancellationToken)
+        public Task<IResult<IEnumerable<WeatherForecast>>> Handle(GetWeatherForecastListQuery request, CancellationToken cancellationToken)
         {
             var rng = new Random();
 
@@ -30,7 +32,7 @@ namespace Clearch.Application.GetWeatherForecast
                 Summary = Summaries[rng.Next(Summaries.Length)]
             });
 
-            return Task.FromResult(vm);
+            return Result<IEnumerable<WeatherForecast>>.SuccessAsync(vm);
         }
     }
 }

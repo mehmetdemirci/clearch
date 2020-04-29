@@ -1,6 +1,6 @@
 using System;
 
-namespace Clearch.Application.GetWeatherForecast
+namespace Clearch.Application.WeatherForecasts.Dtos
 {
     public class WeatherForecast
     {

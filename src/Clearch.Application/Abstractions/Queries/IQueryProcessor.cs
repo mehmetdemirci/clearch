@@ -5,6 +5,6 @@ namespace Clearch.Application.Abstractions.Queries
 {
     public interface IQueryProcessor
     {
-        Task<TResult> ProcessAsync<TResult>(IQuery<TResult> query);
+        Task<IResult<TResult>> ProcessAsync<TResult>(IQuery<TResult> query);
     }
 }
