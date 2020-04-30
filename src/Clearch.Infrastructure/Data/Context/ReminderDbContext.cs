@@ -13,21 +13,7 @@ namespace Clearch.Infrastructure.Data.Context
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            AddConfigurations(builder);
-        }
-
-        public void AddConfigurations(ModelBuilder modelBuilder)
-        {
-            static bool Expression(Type type) => type.IsGenericType && type.GetGenericTypeDefinition() == typeof(IEntityTypeConfiguration<>);
-
-            var types = Assembly.GetCallingAssembly().GetTypes().Where(type => type.GetInterfaces().Any(Expression)).ToList();
-
-            var configurations = types.Select(Activator.CreateInstance);
-
-            foreach (var configuration in configurations)
-            {
-                modelBuilder.ApplyConfiguration((dynamic)configuration);
-            }
+            Extensions.ModelBuilderExtensions.AddConfigurationsFromAssembly(builder);
         }
     }
 }
