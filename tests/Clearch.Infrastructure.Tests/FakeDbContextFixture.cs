@@ -1,15 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Clearch.Infrastructure.IntegrationTests;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace Clearch.Infrastructure.IntegrationTests
+namespace Clearch.Infrastructure.Tests
 {
-    public class FakeDbContextFixture : IDisposable
+    public class FakeDbContextFixture : TestServiceProvider
     {
         public FakeDbContextFixture()
         {
-            var options = new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("FakeTestDb").Options;
-
-            DbContext = new FakeDbContext(options);
+            this.ConfigureServices(x => x.AddDbContext<FakeDbContext>(x => x.UseInMemoryDatabase("FakeTestDb")));
+            
+            DbContext = this.GetRequiredService<FakeDbContext>();
 
             var prop1 = "Fake1";
             var fake = new FakeEntity(prop1);
@@ -18,8 +20,9 @@ namespace Clearch.Infrastructure.IntegrationTests
             DbContext.SaveChanges();
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
+            base.Dispose();
             DbContext?.Dispose();
         }
 

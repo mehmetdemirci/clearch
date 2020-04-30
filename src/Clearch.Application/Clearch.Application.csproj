@@ -16,4 +16,9 @@
     <ProjectReference Include="..\Clearch.Infrastructure\Clearch.Infrastructure.csproj" />
     <ProjectReference Include="..\Clearch.Domain\Clearch.Domain.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>Clearch.Application.Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
 </Project>
