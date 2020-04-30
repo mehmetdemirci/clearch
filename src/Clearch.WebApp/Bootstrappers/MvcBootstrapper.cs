@@ -18,7 +18,7 @@ namespace Clearch.WebApp.Bootstrappers
         {
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            //app.UseSpaStaticFiles();
+            app.UseSpaStaticFiles();
 
             app.UseRouting();
 
@@ -33,16 +33,16 @@ namespace Clearch.WebApp.Bootstrappers
                 endpoints.MapRazorPages();
             });
 
-            //app.UseSpa(spa =>
-            //{
-            //    spa.Options.SourcePath = "ClientApp";
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "ClientApp";
 
-            //    if (Environment.IsDevelopment())
-            //    {
-            //        spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
-            //        //spa.UseReactDevelopmentServer(npmScript: "start");
-            //    }
-            //});
+                if (Environment.IsDevelopment())
+                {
+                    spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
+                    //spa.UseReactDevelopmentServer(npmScript: "start");
+                }
+            });
         }
 
         public override void ConfigureServices(IServiceCollection services)
@@ -51,10 +51,10 @@ namespace Clearch.WebApp.Bootstrappers
             services.AddRazorPages();
 
             // In production, the React files will be served from this directory
-            //services.AddSpaStaticFiles(configuration =>
-            //{
-            //    configuration.RootPath = "ClientApp/build";
-            //});
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "ClientApp/build";
+            });
         }
     }
 }
