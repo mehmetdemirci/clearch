@@ -24,5 +24,6 @@ If you like or are using this project to learn or start your solution, please gi
 
 ### License
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9b42abfc7c524d2c952371787f0912bf)](https://app.codacy.com/manual/mehmet-demirci/clearch?utm_source=github.com&utm_medium=referral&utm_content=mehmetdemirci/clearch&utm_campaign=Badge_Grade_Settings)
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 -**[MIT license](http://opensource.org/licenses/mit-license.php)**
