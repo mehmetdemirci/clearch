@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Clearch.Application.Common.Exceptions
 {
-    public class CustomValidationException : ClearchException
+    public class CustomValidationException : ClearchCoreException
     {
         public CustomValidationException()
             : base("One or more validation failures have occurred.")

@@ -11,9 +11,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="Data\Context\" />
-    <Folder Include="Data\Configurations\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Clearch.Domain\Clearch.Domain.csproj" />

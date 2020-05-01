@@ -27,7 +27,7 @@ namespace Clearch.Infrastructure.IntegrationTests
 
             fake.Id.Should().Be(1);
             fake.Items.First().Id.Should().Be(1);
-            fake.Items.First().Property1.Should().Be(itemProp1);
+            fake.Items.First().PropertyItem.Should().Be(itemProp1);
         }
 
         [Fact]
@@ -40,7 +40,7 @@ namespace Clearch.Infrastructure.IntegrationTests
             await context.SaveChangesAsync();
 
             fake.Id.Should().Be(2);
-            fake.Property1.Should().Be(prop1);
+            fake.PropertyEntity.Should().Be(prop1);
         }
     }
 }

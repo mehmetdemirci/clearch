@@ -45,7 +45,7 @@ namespace Clearch.WebApp.Middleware
                     code = HttpStatusCode.NotFound;
                     result = Result.Error(notFoundException.Message);
                     break;
-                case ClearchException clearchException:
+                case ClearchCoreException clearchException:
                     code = HttpStatusCode.ExpectationFailed;
                     result = Result.Error(clearchException.Message);
                     break;

@@ -8,12 +8,12 @@ namespace Clearch.Infrastructure.IntegrationTests
         {
         }
 
-        public FakeEntityItem(string property1)
+        public FakeEntityItem(string propertyItem)
         {
-            Property1 = property1;
+            PropertyItem = propertyItem;
         }
 
-        public string Property1 { get; protected set; }
+        public string PropertyItem { get; protected set; }
 
         public int FakeEntityId { get; protected set; }
 

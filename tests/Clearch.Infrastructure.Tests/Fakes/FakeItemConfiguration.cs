@@ -11,7 +11,7 @@ namespace Clearch.Infrastructure.IntegrationTests
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Property(x => x.Property1).IsRequired().HasMaxLength(100);
+            builder.Property(x => x.PropertyItem).IsRequired().HasMaxLength(100);
         }
     }
 }

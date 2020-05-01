@@ -12,9 +12,9 @@ namespace Clearch.Application.ReminderGroups.Commands.Create
     internal class CreateReminderGroupCommandHandler : ICommandHandler<CreateReminderGroupCommand,int>
     {
         private readonly ReminderDbContext reminderDbContext;
-        private readonly IExecutionContextAccessor executionContextAccessor;
+        private readonly ICurrentUserAccessor executionContextAccessor;
 
-        public CreateReminderGroupCommandHandler(ReminderDbContext reminderDbContext, IExecutionContextAccessor executionContextAccessor)
+        public CreateReminderGroupCommandHandler(ReminderDbContext reminderDbContext, ICurrentUserAccessor executionContextAccessor)
         {
             this.reminderDbContext = reminderDbContext;
             this.executionContextAccessor = executionContextAccessor;

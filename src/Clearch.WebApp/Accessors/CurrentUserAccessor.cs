@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Clearch.WebApp.Accessors
 {
-    public class ExecutionContextAccessor : IExecutionContextAccessor
+    public class CurrentUserAccessor : ICurrentUserAccessor
     {
-        public ExecutionContextAccessor(IHttpContextAccessor httpContextAccessor)
+        public CurrentUserAccessor(IHttpContextAccessor httpContextAccessor)
         {
             UserId = httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
         }

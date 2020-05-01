@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Clearch.Application.Abstractions
 {
-    public interface IExecutionContextAccessor
+    public interface ICurrentUserAccessor
     {
         string UserId { get; }
     }

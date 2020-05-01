@@ -9,18 +9,18 @@ namespace Clearch.Infrastructure.IntegrationTests
         {
         }
 
-        public FakeEntity(string property1)
+        public FakeEntity(string propertyEntity)
         {
-            Property1 = property1;
+            PropertyEntity = propertyEntity;
         }
 
-        public string Property1 { get; protected set; }
+        public string PropertyEntity { get; protected set; }
 
         public ICollection<FakeEntityItem> Items { get; protected set; } = new List<FakeEntityItem>();
 
-        public void AddItem(string itemProperty1)
+        public void AddItem(string propertyItem)
         {
-            var item = new FakeEntityItem(itemProperty1);
+            var item = new FakeEntityItem(propertyItem);
 
             Items.Add(item);
         }

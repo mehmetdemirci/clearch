@@ -13,7 +13,7 @@ namespace Clearch.Infrastructure.IntegrationTests
 
             builder.Property(x => x.Id).IsRequired().ValueGeneratedOnAdd();
 
-            builder.Property(x => x.Property1).IsRequired().HasMaxLength(100);
+            builder.Property(x => x.PropertyEntity).IsRequired().HasMaxLength(100);
 
             builder.HasMany(x => x.Items).WithOne(x => x.FakeEntity).HasForeignKey(x => x.FakeEntityId);
         }

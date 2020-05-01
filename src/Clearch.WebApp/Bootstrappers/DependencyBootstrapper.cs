@@ -24,7 +24,7 @@ namespace Clearch.WebApp.Bootstrappers
 
         public override void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IExecutionContextAccessor, ExecutionContextAccessor>();
+            services.AddSingleton<ICurrentUserAccessor, CurrentUserAccessor>();
             services.AddApplication(Configuration);
             services.AddInfrastructure(Configuration);
         }
