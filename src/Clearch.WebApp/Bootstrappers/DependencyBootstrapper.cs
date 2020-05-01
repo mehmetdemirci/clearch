@@ -19,7 +19,7 @@ namespace Clearch.WebApp.Bootstrappers
 
         public override void Configure(IApplicationBuilder app)
         {
-
+            // Do nothing now!
         }
 
         public override void ConfigureServices(IServiceCollection services)

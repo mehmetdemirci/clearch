@@ -11,7 +11,7 @@ namespace Clearch.Application.Abstractions
         bool Succeeded { get; }
     }
 
-    public interface IResult<T> : IResult
+    public interface IResult<out T> : IResult
     {
         T Data { get; }
     }

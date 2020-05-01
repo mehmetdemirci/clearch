@@ -5,9 +5,9 @@ namespace Clearch.Infrastructure.Identity
     {
         public static class Roles
         {
-            public const string ADMINISTRATORS = "Administrators";
+            public static string ADMINISTRATORS = "Administrators";
         }
 
-        public const string DEFAULT_PASSWORD = "Password1!";
+        public static string DEFAULT_PASSWORD = "Password1!";
     }
 }

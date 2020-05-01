@@ -13,13 +13,10 @@ namespace Clearch.Application.WeatherForecasts.Queries.List
 {
     public class GetWeatherForecastListQueryHandler : IQueryHandler<GetWeatherForecastListQuery, IEnumerable<WeatherForecast>>
     {
-        private static readonly string[] Summaries = new[]
+        private readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
-
-        public GetWeatherForecastListQueryHandler()
-        { }
 
         public Task<IResult<IEnumerable<WeatherForecast>>> Handle(GetWeatherForecastListQuery request, CancellationToken cancellationToken)
         {

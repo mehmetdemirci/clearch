@@ -37,7 +37,7 @@ namespace Clearch.WebApp.Bootstrappers
 
         public override void ConfigureServices(IServiceCollection services)
         {
-
+            // Do nothing now!
         }
     }
 }

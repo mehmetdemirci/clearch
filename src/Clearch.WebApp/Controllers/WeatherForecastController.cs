@@ -15,13 +15,10 @@ namespace Clearch.WebApp.Controllers
     [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private readonly ILogger<WeatherForecastController> logger;
         private readonly IQueryProcessor queryProcessor;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger,
-            IQueryProcessor queryProcessor)
-        {
-            this.logger = logger;
+        public WeatherForecastController(IQueryProcessor queryProcessor)
+        {            
             this.queryProcessor = queryProcessor;
         }
 
