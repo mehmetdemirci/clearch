@@ -8,9 +8,6 @@ namespace Domain.DDD
     // Learn more: https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/implement-value-objects
     public abstract class ValueObject
     {
-        public static bool operator !=(ValueObject left, ValueObject right) => NotEqualOperator(left, right);
-
-        public static bool operator ==(ValueObject left, ValueObject right) => EqualOperator(left, right);
         public override bool Equals(object obj)
         {
             if (obj == null || obj.GetType() != GetType())

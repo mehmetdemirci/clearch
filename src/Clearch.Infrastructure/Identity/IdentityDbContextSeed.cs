@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Clearch.Infrastructure.Identity
 {
-    public class IdentityDbContextSeed
+    public static class IdentityDbContextSeed
     {
         public static async Task SeedAsync(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {

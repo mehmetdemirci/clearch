@@ -11,8 +11,6 @@ namespace Clearch.Domain.UnitTests
             var fake2 = new FakeValueObject(2, 1);
 
             Assert.False(fake1.Equals(fake2));
-            Assert.False(fake1 == fake2);
-            Assert.True(fake1 != fake2);
         }
 
         [Fact]
@@ -22,8 +20,6 @@ namespace Clearch.Domain.UnitTests
             var fake2 = new FakeValueObject(1, 2);
 
             Assert.True(fake1.Equals(fake2));
-            Assert.True(fake1 == fake2);
-            Assert.False(fake1 != fake2);
         }
     }
 }
