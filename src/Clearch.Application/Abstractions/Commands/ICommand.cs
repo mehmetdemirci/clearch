@@ -3,7 +3,7 @@ using MediatR;
 
 namespace Clearch.Application.Abstractions.Commands
 {
-    public interface ICommand : IRequest
+    public interface ICommand : IRequest<IResult>
     {
     }
 }

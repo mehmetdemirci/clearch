@@ -14,6 +14,8 @@ namespace Clearch.WebApp.Bootstrappers
             Environment = environment;
         }
 
+        public static string ApiName => "Clearch Api";
+
         public string Name => GetType().Name;
 
         public string FullName => GetType().FullName;

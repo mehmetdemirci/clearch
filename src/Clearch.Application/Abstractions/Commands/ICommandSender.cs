@@ -5,7 +5,7 @@ namespace Clearch.Application.Abstractions.Commands
 {
     public interface ICommandSender
     {
-        Task SendAsync(ICommand command);
-        Task<TResult> SendAsync<TResult>(ICommand<TResult> command);
+        Task<IResult> SendAsync(ICommand command);
+        Task<IResult<TResult>> SendAsync<TResult>(ICommand<TResult> command);
     }
 }

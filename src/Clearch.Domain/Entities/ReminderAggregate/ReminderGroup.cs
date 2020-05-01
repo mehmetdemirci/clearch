@@ -6,22 +6,25 @@ namespace Clearch.Domain.Entities.ReminderAggregate
 {
     public class ReminderGroup : EntityBase<int>, IAggregateRoot
     {
-        public ReminderGroup()
-        {
-            Items = new List<ReminderItem>();
-        }
+        public string Title { get; protected set; }
+
+        public string Colour { get; protected set; }
+
+        public IList<ReminderItem> Items { get; protected set; } = new List<ReminderItem>();
+
+        public string Owner { get; protected set; }
 
         public void Create(string title, string owner)
         {
             Title = title;
             Owner = owner;
         }
-        public string Title { get; protected set; }
 
-        public string Colour { get; protected set; }
-
-        public IList<ReminderItem> Items { get; protected set; }
-
-        public string Owner { get; protected set; }
+        public void AddItem(string title, string notes, Priority priority)
+        {
+            var item = new ReminderItem();
+            item.Create(title, notes, priority);
+            Items.Add(item);
+        }
     }
 }

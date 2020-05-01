@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Clearch.WebApp.Middleware;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,11 +31,13 @@ namespace Clearch.WebApp.Bootstrappers
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseMiddleware<ExceptionHandlerMiddleware>();
         }
 
         public override void ConfigureServices(IServiceCollection services)
         {
-
+            // Do nothing now!
         }
     }
 }

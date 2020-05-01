@@ -17,17 +17,13 @@ namespace Clearch.WebApp
 {
     public class Startup
     {
-        private readonly ExceptionBootstrapper exceptionBootstrapper;
-        private readonly DependencyBootstrapper dependencyBootstrapper;
-        private readonly MvcBootstrapper mvcBootstrapper;
+        private readonly BootstrapperConfigurator bootstrapperConfigurator;
 
         public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
 
-            exceptionBootstrapper = new ExceptionBootstrapper(configuration, environment);
-            dependencyBootstrapper = new DependencyBootstrapper(configuration, environment);
-            mvcBootstrapper = new MvcBootstrapper(configuration, environment);
+            bootstrapperConfigurator = new BootstrapperConfigurator(configuration, environment);
 
         }
 
@@ -36,19 +32,14 @@ namespace Clearch.WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            exceptionBootstrapper.ConfigureServices(services);
-            dependencyBootstrapper.ConfigureServices(services);
-            mvcBootstrapper.ConfigureServices(services);
+            bootstrapperConfigurator.ConfigureServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
         {
             logger.LogInformation($"{env.ApplicationName} [{env.EnvironmentName}] Started");
-
-            exceptionBootstrapper.Configure(app);
-            dependencyBootstrapper.Configure(app);
-            mvcBootstrapper.Configure(app);
+            bootstrapperConfigurator.Configure(app);
         }
     }
 }

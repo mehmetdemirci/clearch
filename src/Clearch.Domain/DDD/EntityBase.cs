@@ -14,26 +14,6 @@ namespace Domain.DDD
 
         public TId Id { get; protected set; }
 
-        public static bool operator !=(EntityBase<TId> a, EntityBase<TId> b)
-        {
-            return !(a == b);
-        }
-
-        public static bool operator ==(EntityBase<TId> a, EntityBase<TId> b)
-        {
-            if (a is null && b is null)
-            {
-                return true;
-            }
-
-            if (a is null || b is null)
-            {
-                return false;
-            }
-
-            return a.Equals(b);
-        }
-
         public override bool Equals(object obj)
         {
             return Equals(obj as EntityBase<TId>);
