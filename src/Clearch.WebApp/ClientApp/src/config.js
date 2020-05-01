@@ -6,5 +6,5 @@ const prod = {
     API_URL: "https://API.YourDomainHere.io"
 };
 
-const config = process.env.NODE_ENV === 'development' ? dev : prod;
+const config = process.env.NODE_ENV === "development" ? dev : prod;
 export default config;
